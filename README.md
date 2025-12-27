@@ -40,7 +40,7 @@ A modern, high-performance website offering free online tools built with React 1
 
 ## 🛠️ Tech Stack
 
-- **React 19.0.0** - Latest React with improved performance
+- **React 18.3.1** - Latest stable React with improved performance
 - **Vite 6.0.5** - Lightning-fast build tool
 - **Tailwind CSS 4.0** - Utility-first CSS framework
 - **TypeScript 5.6** - Type safety and better DX
