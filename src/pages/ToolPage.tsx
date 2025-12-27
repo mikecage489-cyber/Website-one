@@ -71,26 +71,35 @@ function ToolPage() {
         schema={schema}
       />
 
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-12">
         {/* Header */}
-        <div className="mb-8">
-          <div className="flex items-center gap-4 mb-4">
-            <span className="text-5xl">{tool.icon}</span>
+        <div className="mb-12">
+          <div className="flex items-center gap-6 mb-6">
+            <div className="text-7xl p-4 bg-gradient-to-br from-blue-100 to-purple-100 rounded-3xl shadow-lg">
+              {tool.icon}
+            </div>
             <div>
-              <h1 className="text-4xl font-bold">{tool.name}</h1>
-              <p className="text-xl text-gray-600 mt-2">{tool.description}</p>
+              <h1 className="text-5xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-3">
+                {tool.name}
+              </h1>
+              <p className="text-2xl text-gray-600 font-light">{tool.description}</p>
             </div>
           </div>
         </div>
 
         {/* Ad Unit - Top */}
-        <div className="mb-8">
+        <div className="mb-12">
           <AdUnit slot="1234567894" />
         </div>
 
         {/* Tool Component */}
-        <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
-          <Suspense fallback={<div className="text-center py-8">Loading tool...</div>}>
+        <div className="bg-white rounded-3xl shadow-2xl p-10 mb-12 border-2 border-gray-100">
+          <Suspense fallback={
+            <div className="text-center py-16">
+              <div className="inline-block animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-600"></div>
+              <p className="mt-4 text-xl text-gray-600">Loading tool...</p>
+            </div>
+          }>
             <ToolComponent />
           </Suspense>
         </div>

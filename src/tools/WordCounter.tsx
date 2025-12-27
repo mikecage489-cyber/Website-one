@@ -51,54 +51,60 @@ function WordCounter() {
   }, [text])
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       <div>
-        <label htmlFor="text-input" className="block text-lg font-semibold mb-2">
-          Enter your text:
+        <label htmlFor="text-input" className="block text-xl font-bold mb-4 text-gray-800">
+          ✍️ Enter your text:
         </label>
         <textarea
           id="text-input"
           value={text}
           onChange={(e) => setText(e.target.value)}
-          className="w-full h-64 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical"
+          className="w-full h-72 px-6 py-4 border-2 border-gray-300 rounded-2xl focus:ring-4 focus:ring-blue-200 focus:border-blue-500 resize-vertical shadow-lg hover:shadow-xl transition-all duration-300 text-lg"
           placeholder="Start typing or paste your text here..."
         />
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-        <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-          <div className="text-3xl font-bold text-blue-600">{stats.words}</div>
-          <div className="text-sm text-gray-600 mt-1">Words</div>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-6 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
+          <div className="text-5xl font-extrabold text-white mb-2">{stats.words}</div>
+          <div className="text-sm text-blue-100 font-semibold uppercase tracking-wide">Words</div>
         </div>
-        <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-          <div className="text-3xl font-bold text-green-600">{stats.characters}</div>
-          <div className="text-sm text-gray-600 mt-1">Characters</div>
+        <div className="bg-gradient-to-br from-green-500 to-green-600 p-6 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
+          <div className="text-5xl font-extrabold text-white mb-2">{stats.characters}</div>
+          <div className="text-sm text-green-100 font-semibold uppercase tracking-wide">Characters</div>
         </div>
-        <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
-          <div className="text-3xl font-bold text-purple-600">{stats.charactersNoSpaces}</div>
-          <div className="text-sm text-gray-600 mt-1">Characters (no spaces)</div>
+        <div className="bg-gradient-to-br from-purple-500 to-purple-600 p-6 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
+          <div className="text-5xl font-extrabold text-white mb-2">{stats.charactersNoSpaces}</div>
+          <div className="text-sm text-purple-100 font-semibold uppercase tracking-wide">No Spaces</div>
         </div>
-        <div className="bg-orange-50 p-4 rounded-lg border border-orange-200">
-          <div className="text-3xl font-bold text-orange-600">{stats.sentences}</div>
-          <div className="text-sm text-gray-600 mt-1">Sentences</div>
+        <div className="bg-gradient-to-br from-orange-500 to-orange-600 p-6 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
+          <div className="text-5xl font-extrabold text-white mb-2">{stats.sentences}</div>
+          <div className="text-sm text-orange-100 font-semibold uppercase tracking-wide">Sentences</div>
         </div>
-        <div className="bg-pink-50 p-4 rounded-lg border border-pink-200">
-          <div className="text-3xl font-bold text-pink-600">{stats.paragraphs}</div>
-          <div className="text-sm text-gray-600 mt-1">Paragraphs</div>
+        <div className="bg-gradient-to-br from-pink-500 to-pink-600 p-6 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
+          <div className="text-5xl font-extrabold text-white mb-2">{stats.paragraphs}</div>
+          <div className="text-sm text-pink-100 font-semibold uppercase tracking-wide">Paragraphs</div>
         </div>
-        <div className="bg-indigo-50 p-4 rounded-lg border border-indigo-200">
-          <div className="text-3xl font-bold text-indigo-600">{stats.readingTime}</div>
-          <div className="text-sm text-gray-600 mt-1">Min. reading time</div>
+        <div className="bg-gradient-to-br from-indigo-500 to-indigo-600 p-6 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
+          <div className="text-5xl font-extrabold text-white mb-2">{stats.readingTime}</div>
+          <div className="text-sm text-indigo-100 font-semibold uppercase tracking-wide">Min Reading</div>
         </div>
       </div>
 
       {text && (
-        <div className="flex gap-2">
+        <div className="flex gap-4">
           <button
             onClick={() => setText('')}
-            className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
+            className="px-8 py-4 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"
           >
-            Clear
+            🗑️ Clear Text
+          </button>
+          <button
+            onClick={() => navigator.clipboard.writeText(text)}
+            className="px-8 py-4 bg-gradient-to-r from-gray-700 to-gray-800 text-white rounded-xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"
+          >
+            📋 Copy Text
           </button>
         </div>
       )}

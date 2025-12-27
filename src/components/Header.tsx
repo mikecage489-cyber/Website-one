@@ -5,37 +5,55 @@ function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
-      <nav className="container mx-auto px-4 py-4">
+    <header className="bg-white/90 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-gray-200">
+      <nav className="container mx-auto px-4 py-5">
         <div className="flex items-center justify-between">
-          <Link to="/" className="text-2xl font-bold text-blue-600">
-            Helpful Tools
+          <Link to="/" className="flex items-center space-x-3 group">
+            <div className="text-3xl">🛠️</div>
+            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent group-hover:scale-105 transition-transform">
+              Helpful Tools
+            </span>
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-6">
-            <Link to="/" className="text-gray-700 hover:text-blue-600 transition">
+          <div className="hidden md:flex items-center space-x-8">
+            <Link 
+              to="/" 
+              className="text-gray-700 hover:text-blue-600 font-medium transition-all hover:scale-110 relative group"
+            >
               Home
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 group-hover:w-full transition-all duration-300"></span>
             </Link>
-            <Link to="/tools" className="text-gray-700 hover:text-blue-600 transition">
+            <Link 
+              to="/tools" 
+              className="text-gray-700 hover:text-blue-600 font-medium transition-all hover:scale-110 relative group"
+            >
               All Tools
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 group-hover:w-full transition-all duration-300"></span>
             </Link>
-            <Link to="/about" className="text-gray-700 hover:text-blue-600 transition">
+            <Link 
+              to="/about" 
+              className="text-gray-700 hover:text-blue-600 font-medium transition-all hover:scale-110 relative group"
+            >
               About
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 group-hover:w-full transition-all duration-300"></span>
             </Link>
-            <Link to="/contact" className="text-gray-700 hover:text-blue-600 transition">
+            <Link 
+              to="/contact" 
+              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2.5 rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+            >
               Contact
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2"
+            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
             <svg
-              className="w-6 h-6"
+              className="w-6 h-6 text-gray-700"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -61,31 +79,31 @@ function Header() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 space-y-3">
+          <div className="md:hidden mt-4 pb-4 space-y-3 animate-in slide-in-from-top">
             <Link
               to="/"
-              className="block text-gray-700 hover:text-blue-600 transition"
+              className="block text-gray-700 hover:text-blue-600 font-medium py-2 px-4 rounded-lg hover:bg-blue-50 transition"
               onClick={() => setMobileMenuOpen(false)}
             >
               Home
             </Link>
             <Link
               to="/tools"
-              className="block text-gray-700 hover:text-blue-600 transition"
+              className="block text-gray-700 hover:text-blue-600 font-medium py-2 px-4 rounded-lg hover:bg-blue-50 transition"
               onClick={() => setMobileMenuOpen(false)}
             >
               All Tools
             </Link>
             <Link
               to="/about"
-              className="block text-gray-700 hover:text-blue-600 transition"
+              className="block text-gray-700 hover:text-blue-600 font-medium py-2 px-4 rounded-lg hover:bg-blue-50 transition"
               onClick={() => setMobileMenuOpen(false)}
             >
               About
             </Link>
             <Link
               to="/contact"
-              className="block text-gray-700 hover:text-blue-600 transition"
+              className="block text-gray-700 hover:text-blue-600 font-medium py-2 px-4 rounded-lg hover:bg-blue-50 transition"
               onClick={() => setMobileMenuOpen(false)}
             >
               Contact
